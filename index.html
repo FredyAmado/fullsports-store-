@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FullSports - Tu tienda deportiva</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="top-bar">Envío gratis en compras de $99+</div>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">FULL<span>SPORTS</span></a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Inicio</a>
+        <a href="shop.html">Hombre</a>
+        <a href="shop.html">Mujer</a>
+        <a href="shop.html">Niños</a>
+        <a href="shop.html">Ofertas</a>
+      </div>
+      <div class="nav-icons">
+        <a href="shop.html">🔍</a>
+        <a href="cart.html">
+          🛒
+          <span class="cart-count">0</span>
+        </a>
+        <a href="admin/index.html">⚙️</a>
+        <button class="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <h1>RENDIMIENTO<br><span>SIN LÍMITES</span></h1>
+      <p>Equípate con lo mejor del deporte. Descubre nuestra colección 2026 con tecnología de punta.</p>
+      <a href="shop.html" class="btn btn-primary">Comprar ahora</a>
+      <a href="shop.html" class="btn btn-outline" style="margin-left:12px;">Ver ofertas</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Categorías</h2>
+          <p class="section-subtitle">Encuentra lo que necesitas</p>
+        </div>
+        <a href="shop.html" class="view-all">Ver todo</a>
+      </div>
+      <div class="categories-grid">
+        <a href="shop.html" class="category-card">
+          <div class="icon">👟</div>
+          <h3>Zapatos</h3>
+          <p>Running, basket, training</p>
+        </a>
+        <a href="shop.html" class="category-card">
+          <div class="icon">👕</div>
+          <h3>Ropa</h3>
+          <p>Camisetas, shorts, medias</p>
+        </a>
+        <a href="shop.html" class="category-card">
+          <div class="icon">⚽</div>
+          <h3>Fútbol</h3>
+          <p>Balones, guantes, accesorios</p>
+        </a>
+        <a href="shop.html" class="category-card">
+          <div class="icon">🏋️</div>
+          <h3>Pesas</h3>
+          <p>Mancuernas, pesas rusas</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--gray-100);">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Más vendidos</h2>
+          <p class="section-subtitle">Lo que todos están comprando</p>
+        </div>
+        <a href="shop.html" class="view-all">Ver todo</a>
+      </div>
+      <div class="products-grid" id="productsContainer"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="features-grid">
+        <div>
+          <div class="feature-icon">🚚</div>
+          <div class="feature-title">Envío gratis</div>
+          <div class="feature-text">En compras mayores a $99. Entregas en 3-5 días hábiles.</div>
+        </div>
+        <div>
+          <div class="feature-icon">🛡️</div>
+          <div class="feature-title">Garantía total</div>
+          <div class="feature-text">30 días de garantía en todos nuestros productos.</div>
+        </div>
+        <div>
+          <div class="feature-icon">💳</div>
+          <div class="feature-title">Pago seguro</div>
+          <div class="feature-text">Paga con tarjeta, efectivo o transferencia.</div>
+        </div>
+        <div>
+          <div class="feature-icon">🔄</div>
+          <div class="feature-title">Devoluciones</div>
+          <div class="feature-text">Devolución sin costo dentro de los primeros 15 días.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">FULL<span>SPORTS</span></div>
+          <p>Tu tienda deportiva de confianza. Equipamiento, ropa y accesorios para todos los deportes.</p>
+        </div>
+        <div>
+          <h4>Tienda</h4>
+          <a href="shop.html">Hombre</a>
+          <a href="shop.html">Mujer</a>
+          <a href="shop.html">Niños</a>
+          <a href="shop.html">Ofertas</a>
+        </div>
+        <div>
+          <h4>Ayuda</h4>
+          <a href="#">Contacto</a>
+          <a href="#">Envíos</a>
+          <a href="#">Devoluciones</a>
+          <a href="#">FAQ</a>
+        </div>
+        <div>
+          <h4>FullSports</h4>
+          <a href="#">Sobre nosotros</a>
+          <a href="#">Términos</a>
+          <a href="#">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 FullSports. Todos los derechos reservados.</span>
+        <span>🇨🇴 Hecho en Colombia</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>
