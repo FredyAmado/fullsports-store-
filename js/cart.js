@@ -20,7 +20,7 @@ function renderCart() {
 
   container.innerHTML = cart.map(item => `
     <div class="cart-item">
-      <div class="cart-item-image">${item.image || '🏷️'}</div>
+      <div class="cart-item-image"${item.image && item.image.includes('/') ? ` style="background-image:url(${item.image})"` : ''}>${item.image && item.image.includes('/') ? '' : '<span class="fallback">📦</span>'}</div>
       <div class="cart-item-info">
         <div class="cart-item-name">${item.name}</div>
         <div class="cart-item-category">${item.category}</div>

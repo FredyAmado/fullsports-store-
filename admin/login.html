@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso Admin - FullSports</title>
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <style>
+    .login-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gray-100);
+    }
+    .login-box {
+      background: white;
+      border-radius: 12px;
+      padding: 48px 40px 40px;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .login-box .logo { font-size: 1.8rem; margin-bottom: 4px; }
+    .login-box h1 { font-size: 1.2rem; margin-bottom: 4px; }
+    .login-box p { color: var(--gray-500); font-size: 0.85rem; margin-bottom: 28px; }
+    .login-box .form-group { text-align: left; }
+    .login-box .btn { width: 100%; margin-top: 8px; }
+    .login-error { color: #dc3545; font-size: 0.85rem; margin-top: 12px; min-height: 1.3rem; }
+  </style>
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-box">
+      <div class="logo">FULL<span>SPORTS</span></div>
+      <h1>Panel de Administración</h1>
+      <p>Ingresa tu contraseña para acceder</p>
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Contraseña</label>
+          <input type="password" id="loginPassword" required autofocus>
+        </div>
+        <button type="submit" class="btn btn-black">Ingresar</button>
+        <div class="login-error" id="loginError"></div>
+      </form>
+    </div>
+  </div>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const pw = document.getElementById('loginPassword').value;
+      const error = document.getElementById('loginError');
+      // Default password: admin123 — can be changed via localStorage
+      const valid = localStorage.getItem('fs_admin_pw') || 'admin123';
+      if (pw === valid) {
+        localStorage.setItem('fs_admin_session', 'true');
+        window.location.href = 'index.html';
+      } else {
+        error.textContent = 'Contraseña incorrecta';
+      }
+    });
+    // If already logged in, redirect
+    if (localStorage.getItem('fs_admin_session') === 'true') {
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

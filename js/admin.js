@@ -1,3 +1,8 @@
+// ===== AUTH CHECK =====
+if (localStorage.getItem('fs_admin_session') !== 'true' && !window.location.pathname.includes('login.html')) {
+  window.location.href = 'login.html';
+}
+
 // ===== DASHBOARD =====
 function initDashboard() {
   const products = STORE.products;
@@ -46,7 +51,7 @@ function initProductAdmin() {
       price: parseFloat(form.productPrice.value),
       oldPrice: form.productOldPrice.value ? parseFloat(form.productOldPrice.value) : null,
       description: form.productDescription.value,
-      image: form.productImage.value || '🏷️',
+      image: form.productImage.value || '',
       stock: parseInt(form.productStock.value) || 0,
     };
 
@@ -72,7 +77,7 @@ function renderProductTable() {
   const products = STORE.products;
   tbody.innerHTML = products.map(p => `
     <tr>
-      <td>${p.image || '🏷️'}</td>
+      <td>${p.image && p.image.includes('/') ? `<div style="width:40px;height:40px;background-image:url(${p.image});background-size:cover;background-position:center;border-radius:6px;"></div>` : '📦'}</td>
       <td><strong>${p.name}</strong></td>
       <td>${p.category}</td>
       <td>${formatPrice(p.price)}</td>
@@ -154,7 +159,24 @@ function showOrderDetail(orderId) {
   alert(`Pedido: ${order.id}\nCliente: ${order.customer?.name}\nEmail: ${order.customer?.email}\nDirección: ${order.customer?.address}\nProductos: ${order.items.map(i => i.name + ' x' + i.qty).join(', ')}\nTotal: ${formatPrice(order.total)}\nEstado: ${order.status}\nFecha: ${new Date(order.date).toLocaleString()}`);
 }
 
+// ===== LOGOUT =====
+function logoutAdmin() {
+  localStorage.removeItem('fs_admin_session');
+  window.location.href = 'login.html';
+}
+
+// ===== NEBULA BRANDING =====
+function addNebulaBranding() {
+  const main = document.querySelector('.admin-main');
+  if (!main) return;
+  const footer = document.createElement('div');
+  footer.style.cssText = 'text-align:center;padding-top:40px;margin-top:40px;border-top:1px solid var(--gray-200);font-size:0.75rem;color:var(--gray-400);';
+  footer.innerHTML = `Desarrollado por <a href="https://nebula-three-pearl.vercel.app" style="color:var(--accent);text-decoration:none;">Nebula</a> — Donde tu marca cobra vida digital`;
+  main.appendChild(footer);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  addNebulaBranding();
   if (document.getElementById('statProducts')) initDashboard();
   if (document.getElementById('productTable')) initProductAdmin();
   if (document.getElementById('ordersTable')) initOrdersAdmin();

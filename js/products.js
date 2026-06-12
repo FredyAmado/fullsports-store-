@@ -9,7 +9,7 @@ function renderProducts(products, containerId = 'productsContainer') {
     const inCart = STORE.cart.find(c => c.id === p.id);
     return `
       <div class="product-card">
-        <div class="product-image">${p.image || '🏷️'}</div>
+        <div class="product-image"${p.image && p.image.includes('/') ? ` style="background-image:url(${p.image})" role="img" aria-label="${p.name}"` : ''}>${p.image && p.image.includes('/') ? '' : '<span class="fallback">📦</span>'}</div>
         <div class="product-info">
           <div class="product-category">${p.category}</div>
           <div class="product-name">${p.name}</div>
